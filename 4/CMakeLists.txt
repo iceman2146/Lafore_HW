@@ -1,2 +1,5 @@
 add_executable(4_1 4_1.cpp)
 add_executable(4_2 4_2.cpp)
+add_executable(4_4 4_4.cpp)
+add_executable(4_5 4_5.cpp)
+add_executable(4_6 4_6.cpp)

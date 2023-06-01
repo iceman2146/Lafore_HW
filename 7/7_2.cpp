@@ -12,10 +12,10 @@ class employe{
         this->name=name;
         this->id=id;
     }
-    string getName(){
+    string getName()const{
         return name;
     }
-    long getId(){
+    long getId()const{
         return id;
     }
     void setName(string name){
@@ -24,7 +24,7 @@ class employe{
     void setId(long id){
         this->id=id;
     }
-    void put_data()
+    void put_data()const
     {
         cout<<"Name: "<<name<<endl;
         cout<<"Id: "<<id<<endl;
@@ -39,9 +39,11 @@ class employe{
 
 };
 int main(int argc, const char** argv) {
-    employe a[100];
+    const int counts=5;
+    employe a[counts];
+    a[1].get_data();
     char answer =' ';
-    for(int i=0;i<100;i++)
+    for(int i=0;i<counts;i++)
     {
         cout<<"Enter data of employee "<<i+1<<": ";
         a[i].get_data();
@@ -50,7 +52,7 @@ int main(int argc, const char** argv) {
             break;
         
     }
-    for (int i=0;i<100;i++){
+    for (int i=0;i<counts;i++){
         a[i].put_data();
     }
     return 0;
