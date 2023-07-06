@@ -1,59 +1,51 @@
 #include <iostream>
 #include <string>
-
+static int counter_of_employe=0;
 using namespace std;
 class employe{
     private:
     string name;
     long id;
+    int counter;
     public:
-    employe():name(""),id(0){}
-    employe(string name,long id){
+    employe():name(""),id(0),counter(counter_of_employe){counter_of_employe++;}
+    employe(string name,long id):name(name),id(id),counter(counter_of_employe){
         this->name=name;
         this->id=id;
-    }
-    string getName()const{
-        return name;
-    }
-    long getId()const{
-        return id;
-    }
-    void setName(string name){
-        this->name=name;
-    }
-    void setId(long id){
-        this->id=id;
+        counter_of_employe++;
     }
     void put_data()const
     {
+        cout<<"------------------------------\n";
         cout<<"Name: "<<name<<endl;
         cout<<"Id: "<<id<<endl;
+        cout<<"------------------------------\n";
     }
     void get_data()
     {
+        _flushall();
         cout<<"Name: ";
-        cin>>name;
-        cout<<endl<<"Id: ";
+        getline(cin,name);
+        cout<<"Id: ";
         cin>>id;
+        
     }
 
 };
 int main(int argc, const char** argv) {
-    const int counts=5;
-    employe a[counts];
-    a[1].get_data();
-    char answer =' ';
-    for(int i=0;i<counts;i++)
-    {
-        cout<<"Enter data of employee "<<i+1<<": ";
-        a[i].get_data();
-        cout<<"y/n?";
-        if (answer=='y')
-            break;
-        
-    }
-    for (int i=0;i<counts;i++){
-        a[i].put_data();
-    }
+const int max_employee=10;
+employe employe_array[max_employee];
+int entered_employee=0;
+char answer=' ';
+do{
+    employe_array[entered_employee++].get_data();
+    _flushall();
+    cout<<"One more? ";cin>>answer;
+}
+while(answer!='n');
+for(int i=0;i<entered_employee;i++)
+{
+employe_array[i].put_data();
+}
     return 0;
 }

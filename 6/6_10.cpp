@@ -6,7 +6,7 @@ using namespace std;
 enum side_world { NORTH = 1, EAST, SOUTH, WEST, NONE };
 class angle 
 {
-private:
+  private:
   int gradus;
   float minutes;
   bool shirota_dolgota;
@@ -33,6 +33,7 @@ private:
 
   void set_side(bool shirota_dolgota, int gradus, float minutes)
    {
+
       if (shirota_dolgota) 
       {
         if (gradus < 0 && gradus > -90)
@@ -137,7 +138,7 @@ private:
   int main() {
     
     Ship ship_1;
-    Ship ship_2({45, 55.1, false}, {15, 32.1, true});
+    Ship ship_2({45, 55.1f, false}, {15, 32.1f, true});
     ship_1.get_coordinates();
     ship_2.print_coordinates();
     ship_1.print_coordinates();

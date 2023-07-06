@@ -1,49 +1,67 @@
 #include <iostream>
 using namespace std;
-struct distance{
+struct Distance{
     int feet;
     float inches;
-    distance():feet(0),inches(0.0){}
-    distance(int _feet,float _inches):feet(_feet),inches(_inches){
-        if (inches>12.0)
+    Distance():feet(0),inches(0.0){}
+    Distance(int _feet,float _inches):feet(_feet),inches(_inches){
+        do{
+            if (inches>12.0)
         {
+
             feet++;
             inches-=12.0;
         }
+        }while(inches>12.0);
     }
-    distance& operator=(const distance&);
-    distance bigger_dist(distance&,distance&)const;
+    ~Distance(){}
+    void print()
+    {
+        cout<<"Feet: "<<feet;
+        cout<<" inches: "<<inches<<endl;
+    }
+    Distance& operator=(const Distance&);
+    
 };
-distance& distance::operator=(distance& rhs)
+Distance& Distance::operator=(const Distance& rhs)
 {
     feet=rhs.feet;
     inches=rhs.inches;
-    if (inches>12.0)
+    do{
+            if (inches>12.0)
         {
+
             feet++;
             inches-=12.0;
         }
+        }while(inches>12.0);
     return *this;
 }
-distance distance::bigger_dist(distance& a,distance& b)
+Distance bigger_dist(Distance& a,Distance& b) 
 {
-    distance temp(0,0.0);
-    if (a.feet>b.feet)
-    {
-        temp=a;
-    }
-    else if(a.feet<b.feet)
-    {
-        temp=b;
-    }
+    Distance temp;
+    Distance temp_a,temp_b;
+    temp_a.inches=a.feet*12+a.inches;
+    temp_b.inches=b.feet*12+b.inches;
+    (temp_a.inches>temp_b.inches)?(temp.inches=temp_a.inches):(temp.inches=temp_b.inches);
+
+    do{
+            if (temp.inches>12.0)
+        {
+
+            temp.feet++;
+            temp.inches-=12.0;
+        }
+        }while(temp.inches>12.0);
     return temp;
 }
 int main()
 {
-    distance a(12,42.0);
-    distance b(11,11.0);
-    distance c;
+    Distance a(12,42.0);
+    Distance b(11,11.0);
+    a.print();b.print();
+    Distance c;
     c=bigger_dist(a,b);
-    cout<<c<<endl;
+    c.print();
     return 0;
 }
