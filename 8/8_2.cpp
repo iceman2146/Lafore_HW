@@ -2,7 +2,8 @@
 // перегрузка операции + для строк
 #include <iostream>
 using namespace std;
-#include <string>   // для функций strcpy, strcat
+
+#include <string.h>   // для функций strcpy, strcat
 #include <stdlib.h>   // для функции exit
 ///////////////////////////////////////////////////////////
 class String          // наш класс для строк
@@ -14,7 +15,7 @@ public:
 	// конструктор без параметров
 	String()
 	{ 
-		strcpy(str, "");
+		strcpy_s(str, "");
 	}
 	// конструктор с одним параметром
 	String(char s[])

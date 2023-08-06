@@ -48,7 +48,7 @@ struct full_name{
     }
 
 };
-
+namespace Lafore{
 struct data
 {
     full_name FN;
@@ -62,13 +62,14 @@ struct data
     }
         
 };
+}
 int main()
 {
-    data utilit({"First name","Last name"},{"City","Street"});
-    data data_1({"Ivan","Petrov"},{"Klin","Lenina",7});
-    data data_2({"Petr","Ivanov"},{"Moscow","Pushkina",16});
-    data data_3({"Svetlana","Smirnova"},{"Saint-Petersburg","Shorsa",4});
-    data data_4({"Kseniya","Volkova"},{"Ivanovo","----",20});
+    Lafore::data utilit({"First name","Last name"},{"City","Street"});
+    Lafore::data data_1({"Ivan","Petrov"},{"Klin","Lenina",7});
+    Lafore::data data_2({"Petr","Ivanov"},{"Moscow","Pushkina",16});
+    Lafore::data data_3({"Svetlana","Smirnova"},{"Saint-Petersburg","Shorsa",4});
+    Lafore::data data_4({"Kseniya","Volkova"},{"Ivanovo","----",20});
     utilit.print();
     cout<<endl<<"--------------------------------------------------------";
     data_1.print();

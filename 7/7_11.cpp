@@ -35,7 +35,7 @@ class money{
     {
         long double value;
         cout<<"Vvedite kolichestvo: ";
-        cin>value;
+        cin>>value;
         
     }
 };

@@ -137,7 +137,7 @@ int main()
 {
     
    cout<<"Znamenatel: ";
-   cin >> znamenatel;
+   //cin >> znamenatel;
 
     return 0;
   }
